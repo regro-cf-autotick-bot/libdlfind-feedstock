@@ -13,7 +13,7 @@ build:
   skip: true  # [py<38 or python_impl == 'pypy']
   script: {{ PYTHON }} -m pip install . -vv
   script_env:
-    - CMAKE_GENERATOR=Ninja
+    - CMAKE_GENERATOR="Ninja"
   number: 1
   ignore_run_exports_from:
     # CXX is unused, but CMAKE demands CXX anyways
@@ -21,7 +21,6 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
