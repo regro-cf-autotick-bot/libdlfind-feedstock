@@ -11,7 +11,10 @@ source:
 
 build:
   skip: true  # [py<38 or python_impl == 'pypy']
-  script: {{ PYTHON }} setup.py install -vv -G Ninja --single-version-externally-managed --record record.txt
+  script:
+    - export CMAKE_GENERATOR=Ninja  # [unix]
+    - set CMAKE_GENERATOR=Ninja  # [win]
+    - {{ PYTHON }} -m pip install . -vv
   number: 1
   ignore_run_exports_from:
     # CXX is unused, but CMAKE demands CXX anyways
