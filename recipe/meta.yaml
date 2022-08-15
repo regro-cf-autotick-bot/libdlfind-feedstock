@@ -11,7 +11,9 @@ source:
 
 build:
   skip: true  # [py<38 or python_impl == 'pypy']
-  script: {{ PYTHON }} -m pip install . -vv --install-option="-- -G Ninja"
+  script_env:
+    - CMAKE_GENERATOR=Ninja
+  script: {{ PYTHON }} -m pip install . -vv
   number: 1
   ignore_run_exports_from:
     # CXX is unused, but CMAKE demands CXX anyways
