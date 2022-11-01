@@ -15,7 +15,7 @@ build:
     - export CMAKE_GENERATOR=Ninja  # [unix]
     - set CMAKE_GENERATOR=Ninja  # [win]
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
   ignore_run_exports_from:
     # CXX is unused, but CMAKE demands CXX anyways
     - {{ compiler('cxx') }}
