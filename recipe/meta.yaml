@@ -15,7 +15,7 @@ build:
     - export CMAKE_GENERATOR=Ninja  # [unix]
     - set CMAKE_GENERATOR=Ninja  # [win]
     - {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
   ignore_run_exports_from:
     # CXX is unused, but CMAKE demands CXX anyways
     - {{ compiler('cxx') }}
@@ -25,6 +25,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [unix]
     - {{ compiler('m2w64_fortran') }}  # [win]
